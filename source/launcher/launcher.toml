@@ -1,0 +1,49 @@
+## install and launch instructions by environment
+[defaults.windows-x86_64]
+url = ""
+entrypoint = "${productRoot}/redshift.protein_folding.ovc.bat"
+args = ["--/app/environment/name='launcher'"]
+
+[defaults.windows-x86_64.open]
+command = "${productRoot}/redshift.protein_folding.ovc.bat"
+args = ['--exec "open_stage.py ${file}"', "--/app/environment/name='launcher'"]
+
+[defaults.windows-x86_64.environment]
+
+[defaults.windows-x86_64.install]
+pre-install = ""
+pre-install-args = []
+install = "${productRoot}/pull_kit_sdk.bat"
+install-args = []
+post-install = "" # "${productRoot}/redshift.protein_foldingwarmup.bat"
+post-install-args = ["--/app/environment/name='launcher_warmup'"]
+
+[defaults.windows-x86_64.uninstall]
+pre-uninstall = ""
+pre-uninstall-args = []
+uninstall = ""
+uninstall-args = []
+post-uninstall = ""
+post-uninstall-args = []
+
+[defaults.linux-x86_64]
+url = ""
+entrypoint = "${productRoot}/redshift.protein_folding.ovc.sh"
+args = ["--/app/environment/name='launcher'"]
+[defaults.linux-x86_64.environment]
+
+[defaults.linux-x86_64.install]
+pre-install = ""
+pre-install-args = []
+install = "${productRoot}/pull_kit_sdk.sh"
+install-args = []
+post-install = "" # "${productRoot}/redshift.protein_foldingwarmup.ovc.sh"
+post-install-args = ["--/app/environment/name='launcher_warmup'"]
+
+[defaults.linux-x86_64.uninstall]
+pre-uninstall = ""
+pre-uninstall-args = []
+uninstall = ""
+uninstall-args = []
+post-uninstall = ""
+post-uninstall-args = []

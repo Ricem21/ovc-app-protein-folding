@@ -1,0 +1,50 @@
+name = "Protein Folding"               # displayed application name
+shortName = "Protein Folding"          # displayed application name in smaller card and library view
+version = "${version}"              # version must be semantic
+kind = "app"                        # enum of "app", "connector", and "experience" for now
+latest = true                       # boolean for if this version is the latest version
+slug = "redshift.protein_folding"    # unique identifier for component, all lower case, persists between versions
+productArea = "Redshift"          # displayed before application name in launcher
+category = "Apps"                   # category of content
+channel = "release"                    # 3 filter types [ "alpha", "beta", "release "]
+enterpriseStatus = false            # set true if you want this package to show in enterprise launcher
+
+#values for filtering content, not implemented yet
+tags = [
+  "Science",
+  "Biochemistry",
+  "Molecule",
+  "Protein",
+  "Visualization",
+  "Folding"
+]
+
+#string array, each line is a new line, keep lines under 256 char and keep lines under 4
+description = [
+"Redshift Protein Folding is an Omniverse application designed for NVIDIA OVC platforms.",
+"When connected to a Omniverse Nucleus server, visualization data could be viewed. This is a test application, no real work can be done. Just used to show how to build and deploy an OVC instance"
+]
+
+#array of links for more info on product
+[[links]]
+title = "Tutorials"
+url = "http://omniverse.nvidia.com/tutorials"
+[[links]]
+title = "Forums"
+url = "https://forums.developer.nvidia.com/c/omniverse/300"
+
+[developer]
+#name of developer
+name = 'Redshift'
+# hyperlink on developer name (can be left as empty string)
+url = 'https://www.redshift.com/'
+
+[publisher]
+#name of publisher
+name = 'Redshift'
+# hyperlink on publisher name (can be left as empty string)
+url = 'https://www.redshift.com/'
+
+[url]
+windows-x86_64 = 'windows-x86_64/package.zip'
+linux-x86_64 = 'linux-x86_64/package.zip'
