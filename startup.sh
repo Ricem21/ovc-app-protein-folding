@@ -43,9 +43,9 @@ export __GL_3489FB=1   # OGL_VULKAN_IGNORE_PIPELINE_CACHE=ON
 
 export OPENBLAS_NUM_THREADS=10 # OM-97400, optimize thread count for numpy(OpenBlas)
 
-CMD="/app/kit/kit"
+CMD="/opt/nvidia/omniverse/protein-folding/kit/kit"
 ARGS=(
-    "/app/apps/${OVC_KIT}"
+    "/opt/nvidia/omniverse/protein-folding/apps/${OVC_KIT}"
     "--no-window"
     "--/privacy/userId=${USER_ID}"
     "--/crashreporter/data/workstream=${WORKSTREAM}"
@@ -54,12 +54,11 @@ ARGS=(
     "--ext-folder /home/ubuntu/.local/share/ov/data/exts/v2"
     "--/crashreporter/gatherUserStory=0" # Workaround for OMFP-2908 while carb fix is deployed.
     "--/crashreporter/includePythonTraceback=0" # Workaround for OMFP-2908 while carb fix is deployed.
-    "--/app/auto_load_usd=${USD_PATH}" # TODO: replace with USD_PATH
 )
 
 # Since we won't have access for
 echo "==== Print out kit config OVC_KIT=${OVC_KIT} for debugging ===="
-cat /app/apps/${OVC_KIT}
+cat /opt/nvidia/omniverse/protein-folding/apps/${OVC_KIT}
 echo "==== End of kit config ${OVC_KIT} ===="
 
 echo "Starting usd viewer with $CMD ${ARGS[@]} $@"
