@@ -16,21 +16,23 @@ RUN if [  -z $OVC_KIT ];then \
 
 ENV OVC_KIT=$OVC_KIT
 
+# /opt/nvidia/omniverse/protein-folding
+
 # Cleanup embedded kit-sdk-launcher package as usd-viewer is a full package with kit-sdk
 RUN rm -rf /opt/nvidia/omniverse/kit-sdk-launcher
 
-# Copy the usd-viewer application package from the _build/packages directory into the containers /app directory.
-COPY --chown=ubuntu:ubuntu $FAT_PACK /app/
+# Copy the usd-viewer application package from the _build/packages directory into the containers /opt/nvidia/omniverse/protein-folding directory.
+COPY --chown=ubuntu:ubuntu $FAT_PACK /opt/nvidia/omniverse/protein-folding/
 
-# Unzip the application package into the container's /app directory and then delete the application package
-WORKDIR /app
+# Unzip the application package into the container's /opt/nvidia/omniverse/protein-folding directory and then delete the application package
+WORKDIR /opt/nvidia/omniverse/protein-folding
 RUN FAT_PACK_BASE=$(basename $FAT_PACK) && unzip $FAT_PACK_BASE -d . && rm $FAT_PACK_BASE
 
 # Pull in any additional required dependencies
-RUN /app/pull_kit_sdk.sh
+RUN /opt/nvidia/omniverse/protein-folding/pull_kit_sdk.sh
 
 # Copy in the Forklift data if available. This should be uncommented if embedding the sample data into the container image.
-#COPY --chown=ubuntu:ubuntu data/ /app/data
+#COPY --chown=ubuntu:ubuntu data/ /opt/nvidia/omniverse/protein-folding/data
 
 # Copy the user defined ovc kit file from the repos source/apps directory into the container image.
 #COPY --chown=ubuntu:ubuntu source/apps/$OVC_KIT /app/apps/$OVC_KIT
